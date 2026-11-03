@@ -1,0 +1,17 @@
+def word_analysis(word):
+    if word.endswith('ies'):
+        return word[:-3] + 'y', '+PLURAL'
+    elif word.endswith('ing'):
+        return word[:-3], '+PROG'
+    elif word.endswith('ed'):
+        return word[:-2], '+PAST'
+    elif word.endswith('es'):
+        return word[:-2], '+PLURAL'
+    elif word.endswith('s'):
+        return word[:-1], '+PLURAL'
+    return word, 'ROOT'
+
+words = ['cats', 'flies', 'boxes', 'playing', 'jumped']
+
+for word in words:
+    print(word, '->', word_analysis(word))

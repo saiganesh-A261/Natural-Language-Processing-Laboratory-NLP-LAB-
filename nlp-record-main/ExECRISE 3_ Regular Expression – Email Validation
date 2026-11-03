@@ -1,0 +1,8 @@
+import re
+
+email = "student@gmail.com"
+
+if re.match(r"^[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}$", email):
+    print("Valid")
+else:
+    print("Invalid")

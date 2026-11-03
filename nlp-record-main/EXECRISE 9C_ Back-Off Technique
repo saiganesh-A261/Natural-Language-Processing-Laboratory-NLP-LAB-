@@ -1,0 +1,19 @@
+bigrams = {
+    ("I", "love"): 3,
+    ("love", "Python"): 2
+}
+
+unigrams = {
+    "I": 4,
+    "love": 3,
+    "Python": 2
+}
+
+def backoff(w1, w2):
+    if (w1, w2) in bigrams:
+        return bigrams[(w1, w2)] / unigrams[w1]
+    else:
+        return unigrams.get(w2, 0) / sum(unigrams.values())
+
+print("Probability:", round(backoff("I", "love"), 3))
+print("Probability:", round(backoff("Python", "love"), 3))

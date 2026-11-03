@@ -1,0 +1,9 @@
+
+import nltk
+
+sentence = "The boy plays cricket"
+
+words = nltk.word_tokenize(sentence)
+tags = nltk.pos_tag(words)
+
+print(tags)

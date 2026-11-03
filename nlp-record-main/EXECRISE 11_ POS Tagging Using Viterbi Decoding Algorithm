@@ -1,0 +1,17 @@
+
+from nltk.tag import hmm
+
+train_data = [
+    [("I", "PRP"), ("play", "VB")],
+    [("You", "PRP"), ("run", "VB")],
+    [("We", "PRP"), ("play", "VB")],
+    [("They", "PRP"), ("run", "VB")]
+]
+
+trainer = hmm.HiddenMarkovModelTrainer()
+model = trainer.train_supervised(train_data)
+
+sentence = ["I", "run"]
+result = model.tag(sentence)
+
+print("POS Tags:", result)

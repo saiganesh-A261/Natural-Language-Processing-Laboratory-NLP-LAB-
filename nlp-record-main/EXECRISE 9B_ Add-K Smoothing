@@ -1,0 +1,12 @@
+words = ["I", "love", "Python", "I", "love", "NLP"]
+
+word = "love"
+k = 0.5
+
+count = words.count(word)
+total = len(words)
+vocab = len(set(words))
+
+prob = (count + k) / (total + k * vocab)
+
+print("Add-K Probability:", round(prob, 3))

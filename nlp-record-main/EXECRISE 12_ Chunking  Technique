@@ -1,0 +1,18 @@
+
+import nltk
+
+sentence = [
+    ("The", "DT"),
+    ("intelligent", "JJ"),
+    ("student", "NN"),
+    ("reads", "VBZ"),
+    ("a", "DT"),
+    ("book", "NN")
+]
+
+grammar = "NP: {<DT>?<JJ>*<NN>}"
+
+parser = nltk.RegexpParser(grammar)
+result = parser.parse(sentence)
+
+print(result)

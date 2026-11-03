@@ -1,0 +1,21 @@
+def word_generate(root, tag):
+    if tag == '+PLURAL':
+        if root.endswith('y'):
+            return root[:-1] + 'ies'
+        elif root.endswith(('s', 'x', 'ch', 'sh')):
+            return root + 'es'
+        return root + 's'
+
+    elif tag == '+PROG':
+        return root + 'ing'
+
+    elif tag == '+PAST':
+        return root + 'ed'
+
+    return root
+
+print(word_generate('cat', '+PLURAL'))
+print(word_generate('fly', '+PLURAL'))
+print(word_generate('box', '+PLURAL'))
+print(word_generate('play', '+PROG'))
+print(word_generate('jump', '+PAST'))

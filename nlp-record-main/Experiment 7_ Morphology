@@ -1,0 +1,14 @@
+def morphology(word):
+    if word.endswith('ing'):
+        return word[:-3], 'Progressive'
+    elif word.endswith('ed'):
+        return word[:-2], 'Past Tense'
+    elif word.endswith('s'):
+        return word[:-1], 'Plural'
+    else:
+        return word, 'Root Word'
+
+words = ['cats', 'playing', 'jumped', 'book']
+
+for word in words:
+    print(word, '->', morphology(word))

@@ -1,0 +1,21 @@
+
+import nltk
+
+sentence = [
+    ("My", "PRP$"),
+    ("brother", "NN"),
+    ("is", "VBZ"),
+    ("playing", "VBG"),
+    ("football", "NN")
+]
+
+grammar = r"""
+    NP: {<PRP\$>?<NN>+}
+    VP: {<VBZ><VBG><NP>?}
+"""
+
+chunker = nltk.RegexpParser(grammar)
+result = chunker.parse(sentence)
+
+print(result)
+result.pretty_print()
